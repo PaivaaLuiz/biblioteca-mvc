@@ -22,7 +22,13 @@ def sobre():
 # página de livros
 @app.route('/livros')
 def livros():
-    return render_template('livros.html')
+
+    lista_livros = Livro.query.all()
+
+    return render_template(
+        'livros.html',
+        livros=lista_livros
+    )
 
 # página de contato
 @app.route('/contato')

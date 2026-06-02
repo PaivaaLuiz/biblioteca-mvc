@@ -24,16 +24,25 @@
 
     <br><br>
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Categoria</th>
-        </tr>
+<table border="1">
 
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Categoria</th>
+    </tr>
 
-    </table>
+    {% for livro in livros %}
+    <tr>
+        <td>{{ livro.id }}</td>
+        <td>{{ livro.titulo }}</td>
+        <td>{{ livro.autor }}</td>
+        <td>{{ livro.categoria }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
 
 </body>
 </html>
