@@ -7,18 +7,20 @@
 </head>
 <body>
 
-    <nav>
-        <a href="/">Início</a> |
-        <a href="/sobre">Sobre</a> |
-        <a href="/livros">Livros</a> |
-        <a href="/contato">Contato</a>
+<nav>
 
-        {% if session.get('admin') %}
-            | <a href="/logout">Logout</a>
-        {% else %}
-            | <a href="/login">Login</a>
-        {% endif %}
-    </nav>
+    <a href="/">Início</a> |
+    <a href="/sobre">Sobre</a> |
+    <a href="/livros">Livros</a> |
+    <a href="/contato">Contato</a>
+
+    {% if session.get('admin') %}
+        | <a href="/logout">Logout</a>
+    {% else %}
+        | <a href="/login">Login</a>
+    {% endif %}
+
+</nav>
 
     <hr>
 

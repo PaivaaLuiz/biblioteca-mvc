@@ -90,6 +90,31 @@ def cadastrar_livro():
 
     return render_template('cadastrar_livro.html')
 
+# editar livros
+
+@app.route('/editar-livro/<int:id>', methods=['GET', 'POST'])
+def editar_livro(id):
+
+    if not session.get('admin'):
+        return redirect('/login')
+
+    livro = Livro.query.get_or_404(id)
+
+    if request.method == 'POST':
+
+        livro.titulo = request.form['titulo']
+        livro.autor = request.form['autor']
+        livro.categoria = request.form['categoria']
+
+        db.session.commit()
+
+        return redirect('/livros')
+
+    return render_template(
+        'editar_livro.html',
+        livro=livro
+    )
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

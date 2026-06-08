@@ -23,14 +23,28 @@ Livros
         <th>Título</th>
         <th>Autor</th>
         <th>Categoria</th>
+
+        {% if session.get('admin') %}
+            <th>Editar</th>
+        {% endif %}
     </tr>
 
     {% for livro in livros %}
     <tr>
+
         <td>{{ livro.id }}</td>
         <td>{{ livro.titulo }}</td>
         <td>{{ livro.autor }}</td>
         <td>{{ livro.categoria }}</td>
+
+        {% if session.get('admin') %}
+        <td>
+            <a href="/editar-livro/{{ livro.id }}">
+                Editar
+            </a>
+        </td>
+        {% endif %}
+
     </tr>
     {% endfor %}
 
