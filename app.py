@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from database.db import db
 from models.livro import Livro
 
 app = Flask(__name__)
+
+app.secret_key = 'biblioteca123'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///biblioteca.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -27,7 +29,8 @@ def livros():
 
     return render_template(
         'livros.html',
-        livros=lista_livros
+        livros=lista_livros,
+        admin=session.get('admin')
     )
 
 # página de contato
@@ -36,13 +39,37 @@ def contato():
     return render_template('contato.html')
 
 # página de login da área administativa
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+
+    if request.method == 'POST':
+
+        usuario = request.form['usuario']
+        senha = request.form['senha']
+
+        if usuario == 'admin' and senha == 'admin123':
+
+            session['admin'] = True
+
+            return redirect('/livros')
+
+        return "Usuário ou senha incorretos!"
+
     return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+
+    session.pop('admin', None)
+
+    return redirect('/')
 
 # cadastro dos livros
 @app.route('/cadastrar-livro', methods=['GET', 'POST'])
 def cadastrar_livro():
+
+    if not session.get('admin'):
+        return redirect('/login')
 
     if request.method == 'POST':
 

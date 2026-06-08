@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Sobre</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <nav>
-        <a href="/">Início</a> |
-        <a href="/sobre">Sobre</a> |
-        <a href="/livros">Livros</a> |
-        <a href="/contato">Contato</a> |
-        <a href="/login">Login</a>
-    </nav>
+{% block titulo %}
+Sobre
+{% endblock %}
 
-    <hr>
+{% block conteudo %}
 
-    <h1>Sobre a Biblioteca</h1>
+<h1>Sobre</h1>
 
-    <p>Esse projeto foi desenvolvido para o gerenciamento de livros e serviços de uma biblioteca.</p>
+<p>Projeto desenvolvido utilizando Flask e padrão MVC.</p>
 
-</body>
-</html>
+{% endblock %}
