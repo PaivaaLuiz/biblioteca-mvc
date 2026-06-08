@@ -26,6 +26,7 @@ Livros
 
         {% if session.get('admin') %}
             <th>Editar</th>
+            <th>Excluir</th>
         {% endif %}
     </tr>
 
@@ -41,6 +42,14 @@ Livros
         <td>
             <a href="/editar-livro/{{ livro.id }}">
                 Editar
+            </a>
+        </td>
+
+        <td>
+            <a
+                href="/excluir-livro/{{ livro.id }}"
+             onclick="return confirm('Deseja realmente excluir este livro?')">
+                Excluir
             </a>
         </td>
         {% endif %}

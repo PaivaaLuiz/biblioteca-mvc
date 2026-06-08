@@ -115,6 +115,21 @@ def editar_livro(id):
         livro=livro
     )
 
+# excluir livros
+
+@app.route('/excluir-livro/<int:id>')
+def excluir_livro(id):
+
+    if not session.get('admin'):
+        return redirect('/login')
+
+    livro = Livro.query.get_or_404(id)
+
+    db.session.delete(livro)
+    db.session.commit()
+
+    return redirect('/livros')
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
