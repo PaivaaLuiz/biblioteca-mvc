@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, session
 from database.db import db
 from models.livro import Livro
+from sqlalchemy import or_
+
 
 app = Flask(__name__)
 
@@ -21,16 +23,28 @@ def inicio():
 def sobre():
     return render_template('sobre.html')
 
-# página de livros
+# página de livros e pesquisa
 @app.route('/livros')
 def livros():
 
-    lista_livros = Livro.query.all()
+    termo = request.args.get('pesquisa')
+
+    if termo:
+
+        lista_livros = Livro.query.filter(
+            or_(
+                Livro.titulo.contains(termo),
+                Livro.autor.contains(termo)
+            )
+        ).all()
+
+    else:
+
+        lista_livros = Livro.query.all()
 
     return render_template(
         'livros.html',
-        livros=lista_livros,
-        admin=session.get('admin')
+        livros=lista_livros
     )
 
 # página de contato
