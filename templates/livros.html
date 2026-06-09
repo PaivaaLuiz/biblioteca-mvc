@@ -45,47 +45,53 @@ Livros
 
 <br>
 
-<table class="table table-striped table-hover">
-
-    <tr>
-        <th>ID</th>
-        <th>Título</th>
-        <th>Autor</th>
-        <th>Categoria</th>
-
-        {% if session.get('admin') %}
-            <th>Editar</th>
-            <th>Excluir</th>
-        {% endif %}
-    </tr>
+<div class="row">
 
     {% for livro in livros %}
-    <tr>
 
-        <td>{{ livro.id }}</td>
-        <td>{{ livro.titulo }}</td>
-        <td>{{ livro.autor }}</td>
-        <td>{{ livro.categoria }}</td>
+    <div class="col-md-4 mb-4">
 
-        {% if session.get('admin') %}
-        <td>
-            <a href="/editar-livro/{{ livro.id }}">
-                Editar
-            </a>
-        </td>
+        <div class="book-card">
 
-        <td>
-            <a
-                href="/excluir-livro/{{ livro.id }}"
-             onclick="return confirm('Deseja realmente excluir este livro?')">
-                Excluir
-            </a>
-        </td>
-        {% endif %}
+            <h3>
+                 {{ livro.titulo }}
+            </h3>
 
-    </tr>
+            <p>
+                <strong>Autor:</strong>
+                {{ livro.autor }}
+            </p>
+
+            <p>
+                <strong>Categoria:</strong>
+                {{ livro.categoria }}
+            </p>
+
+            {% if session.get('admin') %}
+
+                <a
+                    href="/editar-livro/{{ livro.id }}"
+                    class="btn btn-warning btn-sm"
+                >
+                    Editar
+                </a>
+
+                <a
+                    href="/excluir-livro/{{ livro.id }}"
+                    class="btn btn-danger btn-sm"
+                    onclick="return confirm('Deseja excluir este livro?')"
+                >
+                    Excluir
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
     {% endfor %}
 
-</table>
+</div>
 
 {% endblock %}

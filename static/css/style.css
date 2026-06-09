@@ -295,3 +295,40 @@ html{
 
     transform: scale(1.05);
 }
+
+.book-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    height:100%;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+}
+
+.book-card:hover{
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 20px 35px rgba(0,0,0,0.15);
+}
+
+.book-card h3{
+
+    color:#1E40AF;
+
+    margin-bottom:15px;
+}
+
+.book-card p{
+
+    margin-bottom:10px;
+}
