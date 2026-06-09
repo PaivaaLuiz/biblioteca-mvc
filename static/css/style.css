@@ -1,4 +1,3 @@
-/* Fundo geral */
 
 body{
     background: linear-gradient(
@@ -12,7 +11,6 @@ body{
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Cabeçalho */
 
 .hero-header{
 
@@ -29,16 +27,14 @@ body{
     animation: aparecer 1.2s ease;
 }
 
-/* Logo */
 
 .logo-readbook{
 
-    width:180px;
+    width:300px;
 
     animation: flutuar 3s ease-in-out infinite;
 }
 
-/* Nome */
 
 .titulo-readbook{
 
@@ -55,7 +51,6 @@ body{
     animation: brilho 3s infinite;
 }
 
-/* Slogan */
 
 .slogan{
 
@@ -66,7 +61,6 @@ body{
     font-style:italic;
 }
 
-/* Navbar */
 
 .navbar{
 
@@ -75,14 +69,12 @@ body{
     box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Área principal */
 
 .container{
 
     animation: subir 0.8s ease;
 }
 
-/* Cartões */
 
 .card{
 
@@ -101,7 +93,6 @@ body{
     transform:translateY(-5px);
 }
 
-/* Tabela */
 
 .table{
 
@@ -115,7 +106,6 @@ body{
         0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Botões */
 
 .btn{
 
@@ -127,7 +117,6 @@ body{
     transform:scale(1.05);
 }
 
-/* Animações */
 
 @keyframes flutuar{
 
