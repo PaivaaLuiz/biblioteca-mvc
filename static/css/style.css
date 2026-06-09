@@ -1,0 +1,297 @@
+/* Fundo geral */
+
+body{
+    background: linear-gradient(
+        135deg,
+        #f0f7ff,
+        #dbeafe
+    );
+
+    min-height:100vh;
+
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Cabeçalho */
+
+.hero-header{
+
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e40af
+    );
+
+    color:white;
+
+    padding:60px;
+
+    animation: aparecer 1.2s ease;
+}
+
+/* Logo */
+
+.logo-readbook{
+
+    width:180px;
+
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+/* Nome */
+
+.titulo-readbook{
+
+    font-size:70px;
+
+    font-weight:bold;
+
+    letter-spacing:8px;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.4),
+        0 0 20px rgba(255,255,255,0.3);
+
+    animation: brilho 3s infinite;
+}
+
+/* Slogan */
+
+.slogan{
+
+    font-size:24px;
+
+    color:#ffd54f;
+
+    font-style:italic;
+}
+
+/* Navbar */
+
+.navbar{
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Área principal */
+
+.container{
+
+    animation: subir 0.8s ease;
+}
+
+/* Cartões */
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.1);
+
+    transition:0.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+}
+
+/* Tabela */
+
+.table{
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Botões */
+
+.btn{
+
+    transition:0.3s;
+}
+
+.btn:hover{
+
+    transform:scale(1.05);
+}
+
+/* Animações */
+
+@keyframes flutuar{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes brilho{
+
+    0%{
+        text-shadow:
+            0 0 10px rgba(255,255,255,0.3);
+    }
+
+    50%{
+        text-shadow:
+            0 0 25px rgba(255,255,255,0.8);
+    }
+
+    100%{
+        text-shadow:
+            0 0 10px rgba(255,255,255,0.3);
+    }
+
+}
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes subir{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.08);
+
+    transition:0.4s;
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.15);
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+.scroll-section{
+
+    height: 120vh;
+    
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.story-card{
+
+    position: sticky;
+
+    top: 120px;
+
+    width: 80%;
+
+    max-width: 900px;
+
+    height: fit-content;
+
+    background: white;
+
+    padding: 50px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.hero-home{
+
+    padding: 100px 20px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #1e40af,
+        #2563eb
+    );
+
+    color: white;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.15);
+}
+
+.hero-home .btn{
+
+    padding: 15px 35px;
+
+    font-size: 1.2rem;
+
+    border-radius: 50px;
+
+    transition: 0.3s;
+}
+
+.hero-home .btn:hover{
+
+    transform: scale(1.05);
+}
