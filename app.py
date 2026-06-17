@@ -12,6 +12,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///biblioteca.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
+with app.app_context():
+    db.create_all()
 
 # página inicial
 @app.route('/')
@@ -145,7 +147,4 @@ def excluir_livro(id):
     return redirect('/livros')
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-
     app.run(debug=True)
