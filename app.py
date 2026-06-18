@@ -15,6 +15,75 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+    if Livro.query.count() == 0:
+
+        livros_iniciais = [
+
+            Livro(
+                titulo='Harry Potter e a Pedra Filosofal',
+                autor='J. K. Rowling',
+                categoria='Fantasia'
+            ),
+
+            Livro(
+                titulo='Percy Jackson e o Ladrão de Raios',
+                autor='Rick Riordan',
+                categoria='Fantasia'
+            ),
+
+            Livro(
+                titulo='O Senhor dos Anéis',
+                autor='J. R. R. Tolkien',
+                categoria='Fantasia'
+            ),
+
+            Livro(
+                titulo='O Hobbit',
+                autor='J. R. R. Tolkien',
+                categoria='Fantasia'
+            ),
+
+            Livro(
+                titulo='Dom Casmurro',
+                autor='Machado de Assis',
+                categoria='Romance'
+            ),
+
+            Livro(
+                titulo='Memórias Póstumas de Brás Cubas',
+                autor='Machado de Assis',
+                categoria='Romance'
+            ),
+
+            Livro(
+                titulo='1984',
+                autor='George Orwell',
+                categoria='Ficção Científica'
+            ),
+
+            Livro(
+                titulo='A Revolução dos Bichos',
+                autor='George Orwell',
+                categoria='Ficção'
+            ),
+
+            Livro(
+                titulo='O Pequeno Príncipe',
+                autor='Antoine de Saint-Exupéry',
+                categoria='Infantil'
+            ),
+
+            Livro(
+                titulo='Sherlock Holmes: Um Estudo em Vermelho',
+                autor='Arthur Conan Doyle',
+                categoria='Mistério'
+            )
+
+        ]
+
+        db.session.add_all(livros_iniciais)
+        db.session.commit()
+
 # página inicial
 @app.route('/')
 def inicio():
