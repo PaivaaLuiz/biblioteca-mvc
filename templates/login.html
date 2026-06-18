@@ -1,31 +1,78 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-Login
+Login Administrador
 {% endblock %}
 
 {% block conteudo %}
 
-<h1>Login Administrativo</h1>
+<div class="row justify-content-center">
 
-<form method="POST">
+```
+<div class="col-md-5">
 
-    <label>Usuário:</label>
-    <br>
-    <input type="text" name="usuario" required>
+    <div class="login-card">
 
-    <br><br>
+        <div class="text-center mb-4">
 
-    <label>Senha:</label>
-    <br>
-    <input type="password" name="senha" required>
+            <h2>
+                 Área Administrativa
+            </h2>
 
-    <br><br>
+            <p class="text-muted">
+                Entre para gerenciar o catálogo da Read Book
+            </p>
 
-    <button type="submit">
-        Entrar
-    </button>
+        </div>
 
-</form>
+        <form method="POST">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Usuário
+                </label>
+
+                <input
+                    type="text"
+                    name="usuario"
+                    class="form-control"
+                    placeholder="Digite seu usuário"
+                    required
+                >
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Senha
+                </label>
+
+                <input
+                    type="password"
+                    name="senha"
+                    class="form-control"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-login w-100"
+            >
+                Entrar
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+```
+
+</div>
 
 {% endblock %}
