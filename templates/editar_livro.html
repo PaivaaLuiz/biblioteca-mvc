@@ -6,47 +6,129 @@ Editar Livro
 
 {% block conteudo %}
 
-<h1>Editar Livro</h1>
+<div class="row justify-content-center">
 
-<form method="POST">
+```
+<div class="col-lg-8">
 
-    <label>Título:</label>
-    <br>
-    <input
-        type="text"
-        name="titulo"
-        value="{{ livro.titulo }}"
-        required
-    >
+    <div class="admin-card">
 
-    <br><br>
+        <div class="text-center mb-4">
 
-    <label>Autor:</label>
-    <br>
-    <input
-        type="text"
-        name="autor"
-        value="{{ livro.autor }}"
-        required
-    >
+            <span class="badge bg-danger fs-6 mb-3">
+                 Área Administrativa
+            </span>
 
-    <br><br>
+            <h2 class="mb-2">
+                 Gerenciamento de Livro
+            </h2>
 
-    <label>Categoria:</label>
-    <br>
-    <input
-        type="text"
-        name="categoria"
-        value="{{ livro.categoria }}"
-        required
-    >
+            <p class="text-muted">
+                Atualize as informações do catálogo da Read Book e clique em
+                <strong>Salvar Alterações</strong> para concluir.
+            </p>
 
-    <br><br>
+            <hr>
 
-    <button type="submit">
-        Salvar Alterações
-    </button>
+        </div>
 
-</form>
+        <form method="POST">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Título do Livro
+                </label>
+
+                <input
+                    type="text"
+                    name="titulo"
+                    class="form-control"
+                    value="{{ livro.titulo }}"
+                    placeholder="Digite o título do livro"
+                    required
+                >
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Autor
+                </label>
+
+                <input
+                    type="text"
+                    name="autor"
+                    class="form-control"
+                    value="{{ livro.autor }}"
+                    placeholder="Digite o nome do autor"
+                    required
+                >
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Categoria
+                </label>
+
+                <select
+                    name="categoria"
+                    class="form-select"
+                    required
+                >
+
+                    <option value="Fantasia" {% if livro.categoria == 'Fantasia' %}selected{% endif %}>Fantasia</option>
+
+                    <option value="Romance" {% if livro.categoria == 'Romance' %}selected{% endif %}>Romance</option>
+
+                    <option value="Mistério" {% if livro.categoria == 'Mistério' %}selected{% endif %}>Mistério</option>
+
+                    <option value="Ficção Científica" {% if livro.categoria == 'Ficção Científica' %}selected{% endif %}>Ficção Científica</option>
+
+                    <option value="Infantil" {% if livro.categoria == 'Infantil' %}selected{% endif %}>Infantil</option>
+
+                    <option value="Biografia" {% if livro.categoria == 'Biografia' %}selected{% endif %}>Biografia</option>
+
+                    <option value="Aventura" {% if livro.categoria == 'Aventura' %}selected{% endif %}>Aventura</option>
+
+                    <option value="Terror" {% if livro.categoria == 'Terror' %}selected{% endif %}>Terror</option>
+
+                    <option value="Drama" {% if livro.categoria == 'Drama' %}selected{% endif %}>Drama</option>
+
+                    <option value="História" {% if livro.categoria == 'História' %}selected{% endif %}>História</option>
+
+                </select>
+
+            </div>
+
+            <div class="d-flex justify-content-between">
+
+                <a
+                    href="/livros"
+                    class="btn btn-secondary"
+                >
+                    ← Cancelar
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn btn-warning"
+                >
+                    💾 Salvar Alterações
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+```
+
+</div>
 
 {% endblock %}
