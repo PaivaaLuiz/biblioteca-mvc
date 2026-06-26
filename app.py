@@ -6,12 +6,20 @@ from sqlalchemy import or_
 
 app = Flask(__name__)
 
+import os
+
+print("=" * 50)
+print("Banco configurado:", app.config.get("SQLALCHEMY_DATABASE_URI"))
+print("Instance path:", app.instance_path)
+print("Banco absoluto:", os.path.abspath(os.path.join(app.instance_path, "biblioteca.db")))
+print("=" * 50)
+
 app.secret_key = 'biblioteca123'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///biblioteca.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db.init_app(app)
+db.init_app(app) 
 with app.app_context():
     db.create_all()
 
