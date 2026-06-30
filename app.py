@@ -2,24 +2,33 @@ from flask import Flask, render_template, request, redirect, session
 from database.db import db
 from models.livro import Livro
 from sqlalchemy import or_
-
+import os
 
 app = Flask(__name__)
 
-import os
-
-print("=" * 50)
-print("Banco configurado:", app.config.get("SQLALCHEMY_DATABASE_URI"))
-print("Instance path:", app.instance_path)
-print("Banco absoluto:", os.path.abspath(os.path.join(app.instance_path, "biblioteca.db")))
-print("=" * 50)
-
 app.secret_key = 'biblioteca123'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///biblioteca.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Configuração do banco de dados
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-db.init_app(app) 
+if DATABASE_URL:
+    # Ajuste para compatibilidade com o SQLAlchemy
+    if DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
+    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+else:
+    # Desenvolvimento local
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///biblioteca.db"
+
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+print("=" * 50)
+print("Banco utilizado:")
+print(app.config["SQLALCHEMY_DATABASE_URI"])
+print("=" * 50)
+
+db.init_app(app)
 with app.app_context():
     db.create_all()
 
