@@ -8,17 +8,15 @@ app = Flask(__name__)
 
 app.secret_key = 'biblioteca123'
 
-# Configuração do banco de dados
+# configuração do banco de dados
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:
-    # Ajuste para compatibilidade com o SQLAlchemy
     if DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
 else:
-    # Desenvolvimento local
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///biblioteca.db"
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
