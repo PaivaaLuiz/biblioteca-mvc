@@ -27,6 +27,10 @@ Sistema de gerenciamento de livros desenvolvido em Flask utilizando arquitetura 
 
 https://read-book-sjdp.onrender.com
 
+## Para logar como Admin no Site
+Usuário: admin
+Senha: admin123
+
 ##  Desenvolvedor
 
 Luiz Paiva
